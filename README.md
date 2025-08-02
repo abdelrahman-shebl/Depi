@@ -1,6 +1,6 @@
 # DEPI Course Assignments
 
-This repository contains all the assignments completed as part of the **DEPI (Digital Engineering and Programming Interfaces)** course.
+This repository contains all the assignments completed as part of the **DEPI** course.
 
 Each assignment is placed in its own directory and includes relevant code, instructions, and results where applicable.
 
