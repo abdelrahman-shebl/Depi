@@ -4,12 +4,11 @@ A beautiful showcase website displaying Disney and Pixar animated movies with lo
 
 ## 📁 Project Structure
 
-```
+```  
 disney-showcase/
 ├── disney_local.html          # Main HTML file
-├── nginx/
-│   └── disney.conf           # Nginx server configuration
-└── images/                   # Movie poster images
+├── disney.conf                # Nginx server configuration
+└── images/                    # Movie poster images
     ├── ratatouille.jpeg
     ├── bugs-life.webp
     ├── wall-e.jpeg
