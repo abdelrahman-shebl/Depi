@@ -10,9 +10,9 @@ Each assignment is placed in its own directory and includes relevant code, instr
 ## 📁 Repository Structure
 
 DEPI/  
-├── Task1/  
-├── Task2 
-├── Task3 
+├── Task1/   
+├── Task2  
+├── Task3   
 └── Task-N/
 ---
 
