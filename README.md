@@ -12,6 +12,7 @@ Each assignment is placed in its own directory and includes relevant code, instr
 DEPI/  
 ├── Task1/  
 ├── Task2 
+├── Task3 
 └── Task-N/
 ---
 
@@ -19,5 +20,6 @@ DEPI/
 
 - ✅ Task 01: Completed  
 - ✅ Task 02: Completed  
-- ⏳ Task 03: In Progress 
+- ✅ Task 03: In Progress
+- ⏳ Task 04: In Progress 
 - 🔜 More coming soon...
