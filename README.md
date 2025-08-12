@@ -14,6 +14,7 @@ DEPI/
 ├── Task2   
 ├── Task3      
 ├── Task4   
+├── Task5      
 └── Task-N/
 ---
 
@@ -22,6 +23,7 @@ DEPI/
 - ✅ Task 01: Completed  
 - ✅ Task 02: Completed  
 - ✅ Task 03: Completed  
-- ✅ Task 04: Completed  
-- ⏳ Task 05: In Progress 
+- ✅ Task 04: Completed
+- ✅ Task 05: Completed 
+- ⏳ Task 06: In Progress 
 - 🔜 More coming soon...
