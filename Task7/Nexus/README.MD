@@ -80,7 +80,7 @@ In the Nexus UI:
 3. Select **docker (hosted)**
 4. Configure the repository:
    - **Name:** `docker-hosted`
-   - **HTTP Port:** `5000`
+   - **HTTP Port:** `6000`
    - **Allow anonymous docker pull:** Check this for easier access
    - **Enable Docker V1 API:** Uncheck (recommended)
 5. Click **Create repository**
@@ -97,7 +97,7 @@ sudo nano /etc/docker/daemon.json
 Add or modify the file to include:
 ```json
 {
-  "insecure-registries": ["localhost:5000"]
+  "insecure-registries": ["localhost:6000"]
 }
 ```
 
@@ -112,7 +112,7 @@ sudo systemctl restart docker
 3. Add the insecure registry configuration:
 ```json
 {
-  "insecure-registries": ["localhost:5000"]
+  "insecure-registries": ["localhost:6000"]
 }
 ```
 4. Click **Apply & restart**
@@ -137,21 +137,21 @@ docker build -t myapp:latest .
 ### 2. Tag for Nexus
 
 ```bash
-docker tag myapp:latest localhost:5000/myapp:latest
+docker tag myapp:latest localhost:6000/myapp:latest
 ```
 
 ### 3. Push to Nexus
 
 If you enabled anonymous access, you can push directly:
 ```bash
-docker push localhost:5000/myapp:latest
+docker push localhost:6000/myapp:latest
 ```
 
 If authentication is required, login first:
 ```bash
-docker login localhost:5000
+docker login localhost:6000
 # Enter your Nexus username and password
-docker push localhost:5000/myapp:latest
+docker push localhost:6000/myapp:latest
 ```
 
 ### 4. Verify in Nexus UI
@@ -165,13 +165,13 @@ docker push localhost:5000/myapp:latest
 ### Pull Your Image
 
 ```bash
-docker pull localhost:5000/myapp:latest
+docker pull localhost:6000/myapp:latest
 ```
 
 ### Run the Image
 
 ```bash
-docker run --rm localhost:5000/myapp:latest
+docker run --rm localhost:6000/myapp:latest
 ```
 
 ## **PHASE 4: Switch Between Nexus & Docker Hub**
@@ -182,8 +182,8 @@ Tag and push to both registries:
 
 ```bash
 # For Nexus
-docker tag myapp:latest localhost:5000/myapp:latest
-docker push localhost:5000/myapp:latest
+docker tag myapp:latest localhost:6000/myapp:latest
+docker push localhost:6000/myapp:latest
 
 # For Docker Hub
 docker tag myapp:latest your-dockerhub-username/myapp:latest
