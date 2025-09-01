@@ -1,0 +1,7 @@
+---
+# handlers file for docker
+- name: systemctl enable
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes
