@@ -1,12 +1,11 @@
 applications:
-   
   pet-clinic-real-app:
     namespace: argocd
     project: default
     source:
-      path: K8s
-      repoURL: https://github.com/abdelrahman-shebl/Depi/tree/master/Task10
+      repoURL: https://github.com/abdelrahman-shebl/Depi
       targetRevision: HEAD
+      path: Task10/K8s
     destination:
       namespace: petclinic
       server: https://kubernetes.default.svc
