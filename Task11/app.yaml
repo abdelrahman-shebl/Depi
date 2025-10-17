@@ -1,0 +1,18 @@
+applications:
+   
+  pet-clinic-real-app:
+    namespace: argocd
+    project: default
+    source:
+      path: K8s
+      repoURL: https://github.com/abdelrahman-shebl/Depi/tree/master/Task10
+      targetRevision: HEAD
+    destination:
+      namespace: petclinic
+      server: https://kubernetes.default.svc
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
