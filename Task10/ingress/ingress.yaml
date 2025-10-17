@@ -15,11 +15,11 @@ spec:
                 name: front-svc
                 port:
                   number: 8080
-          - path: /argo
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+          # - path: /argo
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: argocd-server
+          #       port:
+          #         number: 80
           
