@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: ingress
   namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
     - host: shebl.com
@@ -15,4 +19,3 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-          

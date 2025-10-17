@@ -14,7 +14,7 @@ spec:
               service:
                 name: front-svc
                 port:
-                  number: 8080
+                  number: 90
           # - path: /argo
           #   pathType: Prefix
           #   backend:

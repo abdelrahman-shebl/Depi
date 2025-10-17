@@ -1,10 +1,15 @@
 configs:
   secret:
     argocdServerAdminPassword: "$2a$10$MVBkBkAxErFWaBpXA4Ltz.Kiwhcz0CkNmVZZgZPa/03JpykN50BVO"
+  cm:
+    url: "http://shebl.com/argo"
+    server.basehref: /argo/
+    server.rootpath: /argo
+  params:
+    server.insecure: "true"
 
 server:
-  insecure: true           
-  basehref: /argo
+  insecure: true
   replicas: 1
   service:
     type: ClusterIP
@@ -55,8 +60,7 @@ controller:
       memory: 256Mi
 
 dex:
-  enabled: false 
-
+  enabled: false
 
 # extraObjects:
 #   - apiVersion: monitoring.coreos.com/v1
