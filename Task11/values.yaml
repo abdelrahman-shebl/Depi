@@ -1,10 +1,10 @@
 configs:
   secret:
     argocdServerAdminPassword: "$2a$10$MVBkBkAxErFWaBpXA4Ltz.Kiwhcz0CkNmVZZgZPa/03JpykN50BVO"
-  cm:
-    server.basehref: /argo
 
 server:
+  insecure: true           
+  basehref: /argo
   replicas: 1
   service:
     type: ClusterIP

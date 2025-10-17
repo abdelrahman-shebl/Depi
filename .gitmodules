@@ -1,9 +1,0 @@
-[submodule "PetClinic Pipeline - Complete CI-CD"]
-	path = PetClinic Pipeline - Complete CI-CD
-	url = https://github.com/abdelrahman-shebl/PetClinic-app
-[submodule "Islamic App - Complete CI/CD"]
-	path = Islamic App - Complete CI/CD
-	url = https://github.com/abdelrahman-shebl/Islamic-app
-[submodule "Islamic App three-tier - Complete CI-CD"]
-	path = Islamic App three-tier - Complete CI-CD
-	url = https://github.com/abdelrahman-shebl/Islamic-app
