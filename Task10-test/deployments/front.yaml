@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: shebl22/petclinic:8cd8bb2970b3a81523a5b64d92cb25b0430617fa
+          image: petclinic
           # imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000

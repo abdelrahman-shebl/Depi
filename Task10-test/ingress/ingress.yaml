@@ -5,7 +5,7 @@ metadata:
 
 spec:
   rules:
-    - host:  ec2-13-60-84-164.eu-north-1.compute.amazonaws.com
+    - host:  shebl.com
       http:
         paths:
           - path: /
