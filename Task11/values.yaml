@@ -2,17 +2,28 @@ configs:
   secret:
     argocdServerAdminPassword: "$2a$10$MVBkBkAxErFWaBpXA4Ltz.Kiwhcz0CkNmVZZgZPa/03JpykN50BVO"
   cm:
-    url: "http://shebl.com/argo"
-    server.basehref: /argo/
-    server.rootpath: /argo
+    url: http://shebl.com/argo
   params:
     server.insecure: "true"
+    server.basehref: /argo/
+    server.rootpath: /argo/
+
+global:
+  domain: shebl.com
 
 server:
-  insecure: true
   replicas: 1
+  extraArgs:
+    - --basehref=/argo/
+    - --rootpath=/argo/
   service:
     type: ClusterIP
+  ingress:
+    enabled: true
+    hostname: shebl.com
+    path: /argo
+    pathType: Prefix
+    tls: false
   metrics:
     enabled: true
     service:
@@ -61,87 +72,3 @@ controller:
 
 dex:
   enabled: false
-
-# extraObjects:
-#   - apiVersion: monitoring.coreos.com/v1
-#     kind: ServiceMonitor
-#     metadata:
-#       name: argocd-application-controller-metrics
-#       namespace: monitoring
-#       labels:
-#         app.kubernetes.io/name: argocd
-#         app.kubernetes.io/component: application-controller
-#         release: my-kube-prometheus-stack
-#     spec:
-#       namespaceSelector:
-#         matchNames:
-#           - argocd
-#       selector:
-#         matchLabels:
-#           app.kubernetes.io/name: argocd-metrics  
-#       endpoints:
-#         - port: metrics
-#           interval: 30s
-#           path: /metrics
-
-#   - apiVersion: monitoring.coreos.com/v1
-#     kind: ServiceMonitor
-#     metadata:
-#       name: argocd-server-metrics
-#       namespace: monitoring
-#       labels:
-#         app.kubernetes.io/name: argocd
-#         app.kubernetes.io/component: server
-#         release: my-kube-prometheus-stack
-#     spec:
-#       namespaceSelector:
-#         matchNames:
-#           - argocd
-#       selector:
-#         matchLabels:
-#           app.kubernetes.io/name: argocd-server-metrics 
-#       endpoints:
-#         - port: metrics
-#           interval: 30s
-#           path: /metrics
-
-#   - apiVersion: monitoring.coreos.com/v1
-#     kind: ServiceMonitor
-#     metadata:
-#       name: argocd-repo-server-metrics
-#       namespace: monitoring
-#       labels:
-#         app.kubernetes.io/name: argocd
-#         app.kubernetes.io/component: repo-server
-#         release: my-kube-prometheus-stack
-#     spec:
-#       namespaceSelector:
-#         matchNames:
-#           - argocd
-#       selector:
-#         matchLabels:
-#           app.kubernetes.io/name: argocd-repo-server-metrics  
-#       endpoints:
-#         - port: metrics
-#           interval: 30s
-#           path: /metrics
-
-#   - apiVersion: networking.k8s.io/v1
-#     kind: NetworkPolicy
-#     metadata:
-#       name: allow-controller-to-repo
-#       namespace: argocd
-#     spec:
-#       podSelector:
-#         matchLabels:
-#           app.kubernetes.io/name: argocd-repo-server
-#       ingress:
-#       - from:
-#         - podSelector:
-#             matchLabels:
-#               app.kubernetes.io/name: argocd-application-controller
-#         ports:
-#         - protocol: TCP
-#           port: 8081
-#       policyTypes:
-#       - Ingress

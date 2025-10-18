@@ -5,7 +5,7 @@ applications:
     source:
       repoURL: https://github.com/abdelrahman-shebl/Depi
       targetRevision: HEAD
-      path: Task10
+      path: Task10-test
     destination:
       namespace: petclinic
       server: https://kubernetes.default.svc
