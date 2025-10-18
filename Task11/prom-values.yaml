@@ -1,0 +1,95 @@
+global:
+  domain: shebl.com
+
+# ───────────────────────────────
+# GRAFANA CONFIGURATION
+# ───────────────────────────────
+grafana:
+  enabled: true
+  adminPassword: "admin"
+
+  # Disable default dashboards/datasources
+  defaultDashboardsEnabled: false
+  defaultDatasourcesEnabled: false
+
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    hosts:
+      - shebl.com
+    path: /grafana
+    pathType: Prefix
+    tls: []
+
+  grafana.ini:
+    server:
+      root_url: "%(protocol)s://%(domain)s/grafana/"
+      serve_from_sub_path: true
+
+  # ─────── Argo CD Dashboard ───────
+  dashboards:
+    default:
+      argocd:
+        gnetId: 14584      # official Argo CD dashboard from Grafana.com
+        revision: 1
+        datasource: Prometheus
+
+# ───────────────────────────────
+# PROMETHEUS CONFIGURATION
+# ───────────────────────────────
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}
+    podMonitorSelector: {}
+    podMonitorNamespaceSelector: {}
+    scrapeInterval: 30s
+    evaluationInterval: 30s
+
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    hosts:
+      - shebl.com
+    paths:
+      - /prometheus
+    pathType: Prefix
+    tls: []
+
+# ───────────────────────────────
+# DISABLE UNNEEDED COMPONENTS
+# ───────────────────────────────
+alertmanager:
+  enabled: false
+
+coreDns:
+  enabled: false
+kubeDns:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false
+kubeApiServer:
+  enabled: false
+nodeExporter:
+  enabled: false
+kubelet:
+  enabled: false
+kubeStateMetrics:
+  enabled: false

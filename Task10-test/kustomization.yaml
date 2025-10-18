@@ -6,10 +6,10 @@ namespace: petclinic
 resources:
   - namespace/ns.yaml
   - configmaps/cm.yaml
-  - secrets/db-sealed-secret.yaml
-  # - secrets/db-secrets.yaml
-  - secrets/front-sealed-secret.yaml
-  # - secrets/front-secrets.yaml
+  # - secrets/db-sealed-secret.yaml
+  - secrets/db-secrets.yaml
+  # - secrets/front-sealed-secret.yaml
+  - secrets/front-secrets.yaml
   - services/db-svc.yaml
   - services/front-svc.yaml
   - statefullsets/ss.yaml

@@ -14,4 +14,4 @@ htpasswd -nbBC 10 "" admin | tr -d ':\n'
 
 helm upgrade --install argocd-apps argo/argocd-apps -n argocd -f app.yaml
 
-
+ helm upgrade --install my-kube-prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring  --create-namespace -f prom-values.yaml
