@@ -3,27 +3,39 @@ configs:
     argocdServerAdminPassword: "$2a$10$MVBkBkAxErFWaBpXA4Ltz.Kiwhcz0CkNmVZZgZPa/03JpykN50BVO"
   cm:
     url: http://shebl.com/argo
-  params:
-    server.insecure: "true"
-    server.basehref: /argo/
-    server.rootpath: /argo/
+  # params:
+  #   server.insecure: "true"
+  #   server.basehref: /argo/
+  #   server.rootpath: /argo/
 
 global:
   domain: shebl.com
 
 server:
   replicas: 1
+  
   extraArgs:
     - --basehref=/argo/
     - --rootpath=/argo/
+
   service:
     type: ClusterIP
+
+  ingress:
+    enabled: true
+    hosts:
+      - host: argocd.example.com
+        paths:
+          - path: /argocd
+            pathType: Prefix
+
   ingress:
     enabled: true
     hostname: shebl.com
     path: /argo
     pathType: Prefix
     tls: false
+
   metrics:
     enabled: true
     service:
