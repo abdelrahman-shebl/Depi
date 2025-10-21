@@ -5,8 +5,6 @@ metadata:
   labels:
     app: front
 spec:
-  replicas: 1
-
   selector:
     matchLabels:
       app: front
@@ -21,6 +19,14 @@ spec:
           # imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 100m 
+            limits:
+              memory: 256Mi
+              cpu: 100m 
+            
 
           envFrom:
             - configMapRef:
