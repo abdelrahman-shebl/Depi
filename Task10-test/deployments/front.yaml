@@ -22,10 +22,10 @@ spec:
           resources:
             requests:
               memory: 800Mi
-              cpu: 100m 
+              cpu: 100Mi
             limits:
-              memory: 256Mi
-              cpu: 1Gi 
+              memory: 1Gi
+              cpu: 256Mi 
             
 
           envFrom:
