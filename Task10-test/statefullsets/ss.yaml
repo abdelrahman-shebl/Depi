@@ -24,16 +24,16 @@ spec:
             - secretRef:
                 name: db-secrets
 
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/mysql
+  #         volumeMounts:
+  #           - name: data
+  #             mountPath: /var/lib/mysql
 
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 50Mi
-        storageClassName: ebs-gp2
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: data
+  #     spec:
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 50Mi
+  #       storageClassName: ebs-gp2
