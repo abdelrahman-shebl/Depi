@@ -13,7 +13,7 @@ resources:
   - services/db-svc.yaml
   - services/front-svc.yaml
   - statefullsets/ss.yaml
-  - deployments/hpa.yaml
+  # - deployments/hpa.yaml
   - deployments/front.yaml
   - ingress/ingress.yaml
   
