@@ -8,6 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: /health
 
 spec:
+  ingressClassName: alb
   rules:
     - host:  shebl22.me
       http:
